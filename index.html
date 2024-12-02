@@ -1,91 +1,248 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Mon portfolio</title>
-        <meta type="description" content="Ceci est mon portfolio">
-        <link rel="stylesheet" href="style/style.css" type="text/css">
-        
-    </head>
+<head>
+    <meta charset="utf-8"/>
+    <title>Mon portfolio</title>
+    <meta name="description" content="Ceci est mon portfolio">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
+</head>
 
-    <body>
+<body>
 
-        <div class="slider">
-            <img src="img/fond.jpg" class="slider-background">
-            <div class="slider-content">
-            <h1>Gabriel Pierret </h1>
-            <p>Passionné par la science des données et l'intelligence artificielle, je suis constamment à la recherche de nouvelles solutions innovantes. Toujours motivé par les défis, je m'engage à développer des projets ambitieux alliant rigueur technique et créativité. Mon objectif est de contribuer à transformer les données en leviers de décision stratégiques tout en explorant les technologies émergentes. En tant qu'étudiant en Science des Données, je suis enthousiaste à l'idée de repousser les limites de l'innovation</p>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">À propos de moi</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#realisations">Mes projets</a></li>
+            <li><a href="#formation">Formation</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Slider -->
+<div class="slider-background">
+    <div class="slider-content">
+        <h1>Gabriel Pierret</h1>
+        <p>Passionné par la science des données et l'intelligence artificielle, je suis constamment à la recherche de nouvelles solutions innovantes...</p>
+    </div>
+</div>
+
+<!-- Section À propos de moi -->
+<div class="section dark" id="apropos">
+    <div class="boxed text-center">
+        <h2>À propos de moi</h2>
+        <div class="flex-center">
+            <div class="w50">
+                <img src="img/photo_profil.jpg" alt="Gabriel Pierret" class="profil-img">
+            </div>
+            <div class="w50">
+                <p>Actuellement en première année de cycle ingénieur à l'ESIEA Paris, je poursuis mon parcours en alternance chez Docaposte en tant que Data Scientist.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Compétences -->
+<div class="section dark" id="competences">
+    <div class="boxed text-center">
+        <h2>Découvrez mes compétences</h2>
+
+        <!-- Front-End -->
+        <h2>Front-End</h2>
+        <div class="flex-center">
+            <div class="w25 skill">
+                <img src="img/html.png" alt="HTML">
+                <h3>HTML</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/css.png" alt="CSS">
+                <h3>CSS</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/js.png" alt="JavaScript">
+                <h3>JavaScript</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/typescript.png" alt="TypeScript">
+                <h3>TypeScript</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/bootstrap.png" alt="Bootstrap">
+                <h3>Bootstrap</h3>
             </div>
         </div>
 
-        <div class="section"> 
-            <div class="boxed">
-                <div class="flex"> 
-                    <div class="w40">
-                        <h2> A propos de moi </h2>
-                    </div>
-                    <div class="w60">
-                        <p> Actuellement en première année de cycle ingénieur à l'ESIEA Paris, je poursuis mon parcours en alternance chez Docaposte en tant que Data Scientist. Passionné par la science des données et le développement d’applications, j'ai acquis une expérience solide en gestion de bases de données, intégration d’API, et visualisation de données. Mon objectif est de continuer à enrichir mes compétences techniques et théoriques, tout en contribuant activement à des projets innovants au sein de mon entreprise.</p>
-
-                    </div>
-                </div>
+        <!-- Back-End -->
+        <h2>Back-End</h2>
+        <div class="flex-center">
+            <div class="w25 skill">
+                <img src="img/python.png" alt="Python">
+                <h3>Python</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/java.png" alt="Java">
+                <h3>Java</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/mysql.png" alt="MySQL">
+                <h3>MySQL</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/mongodb.png" alt="MongoDB">
+                <h3>MongoDB</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/php.png" alt="PHP">
+                <h3>PHP</h3>
             </div>
         </div>
 
-        <div class="section dark "> 
-            <div class="boxed text-center ">
-                <h2> Découvrez mes competences </h2>
-                <div class="flex gap20">
-                    <div class="w25 skill ">
-                        <img src="img/html.png">
-                        <h3>HTML</h3>
-                    </div>
-                    <div class="w25 skill ">
-                        <img src="img/css.png">
-                        <h3>CSS</h3>
-                    </div>
-                    <div class="w25 skill ">
-                        <img src="img/js.png">
-                        <h3>JAVASCRIPT</h3>
-                    </div>
-                    <div class="w25 skill ">
-                        <img src="img/python.png">
-                        <h3>PYTHON</h3>
-                    </div>
-                    
-
-                </div>
+        <!-- Technologies -->
+        <h2>Technologies</h2>
+        <div class="flex-center">
+            <div class="w25 skill">
+                <img src="img/github.png" alt="GitHub">
+                <h3>GitHub</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/gitlab.png" alt="GitLab">
+                <h3>GitLab</h3>
+            </div>
+            <div class="w25 skill">
+                <img src="img/docker.png" alt="Docker">
+                <h3>Docker</h3>
             </div>
         </div>
-        <div class="section"> 
-            <div class="boxed text-center">
-                <h2> Mes réalsations</h2>
-                <div class="flex space-between">
-                    <div class="w32 realisation ">
-                        <a href="/">
-                            <img src="img/Projet1.png" alt="">
-                            <h3></h3>
-                        </a>
+    </div>
+</div>
 
-                    </div>
-                    <div class="w32 realisation ">
-                        <a href="/">
-                            <img src="img/Projet2.png" alt="">
-                        </a>
 
-                    </div>
-                    <div class="w32 realisation ">
-                        <a href="/">
-                            <img src="img/Projet3.png" alt="">
-                        </a>
+<!-- Formation -->
+<div class="section dark" id="formation">
+    <div class="boxed text-center">
+        <h2>Mon Parcours</h2>
 
-                    </div>
-                    
-                </div>
+        <!-- Diplômes -->
+        <h2>Diplômes</h2>
+        <div class="flex-center">
+            <div class="formation-item">
+                <img src="img/esiea.png" alt="ESIEA">
+                <h3>Diplôme d'ingénieur</h3>
+                <p>ESIEA Paris 2024-2027</p>
+                <span class="status status-encours">En cours</span>
+            </div>
+            <div class="formation-item">
+                <img src="img/diplome_but.jpg" alt="BUT STID">
+                <h3>BUT Science des données</h3>
+                <p>Université de Perpignan 2021-2024</p>
+                <span class="status status-acquis">Acquis</span>
+            </div>
+            <div class="formation-item">
+                <img src="img/bac.png" alt="Baccalauréat">
+                <h3>Baccalauréat Scientifique</h3>
+                <p>Lycée Sasserno Nice  2019-2021</p>
+                <span class="status status-acquis">Acquis</span>
             </div>
         </div>
 
-    </body>
+        <!-- Certifications -->
+        <h2>Certifications</h2>
+        <div class="flex-center">
+            <div class="formation-item">
+                <img src="img/udemy.png" alt="Certification 1">
+                <h3>Certification Data Science</h3>
+                <p>Coursera - 2022</p>
+            </div>
+            <div class="formation-item">
+                <img src="img/openclassrooms.png" alt="Certification 2">
+                <h3>Certification Machine Learning</h3>
+                <p>Udemy - 2021</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="js/app.js"> </script>
+  
+<!-- Projets -->
+<div class="section dark" id="realisations">
+    <div class="boxed text-center">
+        <h2>Mes Projets</h2>
+        <div class="flex-center">
+            <!-- Projet IA -->
+            <div class="w32 realisation" onclick="openModal('modalProjet1')">
+                <img src="img/projet1.png" alt="Projet IA">
+                <h3>Projet IA</h3>
+            </div>
+            <!-- Projet Cartographie -->
+            <div class="w32 realisation" onclick="openModal('modalProjet2')">
+                <img src="img/projet2.png" alt="Projet Cartographie">
+                <h3>Projet Cartographie</h3>
+            </div>
+             <!-- Projet Cartographie -->
+             <div class="w32 realisation" onclick="openModal('modalProjet3')">
+                <img src="img/projet3.png" alt="Projet Cartographie">
+                <h3>Projet Collecte de Données</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Modales Projet IA -->
+    <div id="modalProjet1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalProjet1')">&times;</span>
+            <h3>Projet IA</h3>
+            <p>Ce projet implique l'utilisation de machine learning pour analyser et classifier les avis consommateurs en utilisant des données collectées via web scraping. Le modèle a été développé avec Scikit-learn et la collecte des données a été réalisée avec BeautifulSoup.</p>
+        </div>
+    </div>
+    
+        <!-- Modal Projet Cartographie -->
+    <div id="modalProjet2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalProjet2')">&times;</span>
+            <h3>Projet Cartographie</h3>
+            <p>Description du projet de cartographie...</p>
+        </div>
+    </div>
+
+      <!-- Modal Projet  Collecte de Donnée -->
+      <div id="modalProjet3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalProjet3')">&times;</span>
+            <h3>Projet Collecte automatisée de données web</h3>
+            <p>Ce projet consiste à automatiser la collecte de données environnementales telles que la température, l'humidité, et la pression à l'aide de capteurs connectés à un Arduino, avec l'intégration des données dans une base SQL.</p>
+        </div>
+    </div>
+
+   <!-- Section Contact -->
+<div id="contact" class="section contact-section" style="background-color: #333;">
+    <div class="boxed text-center">
+        <h2>Contactez-moi</h2>
+        <div class="contact-info">
+            <p>
+                <a href="mailto:pierretgabriel1@gmail.com">
+                    <img src="img/mail.png" alt="Email Icon" class="contact-icon">
+                    pierretgabriel1@gmail.com
+                </a>
+            </p>
+            <p>
+                <a href="tel:+33668972941">
+                    <img src="img/phone.png" alt="Phone Icon" class="contact-icon">
+                    0668972941
+                </a>
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/gabriel-pierret-1239b623a/" target="_blank">
+                    <img src="img/linkedin.png" alt="LinkedIn Icon" class="contact-icon">
+                    LinkedIn
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+    <script src="js/app.js"></script>
+</body>
 </html>
