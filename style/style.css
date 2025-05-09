@@ -389,4 +389,51 @@ h2 {
     text-align: center;
     width: 100%;
   }
+
+  .w25, .w32, .formation-item, .skill, .realisation {
+    width: calc(50% - 20px);
+    max-width: none;
+  }
+
+  .skill img, .realisation img, .formation-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+
+  .slider-content h1 {
+    font-size: 2rem;
+  }
+
+  .slider-content p {
+    font-size: 1rem;
+  }
+
+  .section.dark h2 {
+    font-size: 1.8rem;
+  }
+
+  .formation-item, .skill, .realisation {
+    padding: 15px;
+  }
+
+  .status {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+  }
 }
+
+  @media screen and (max-width: 600px) {
+    .w25, .w32, .formation-item, .skill, .realisation {
+      width: 100%;
+      margin: 10px 0;
+    }
+  
+    .profil-img {
+      width: 150px;
+      height: 150px;
+    }
+  }
