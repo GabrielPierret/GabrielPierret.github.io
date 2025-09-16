@@ -12,48 +12,137 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #333;
-  padding: 10px 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  padding: 15px 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.8s ease-out;
+  transition: all 0.3s ease;
 }
 
-.navbar ul {
+/* Animation de la navbar */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Effet de scroll sur la navbar */
+.navbar.scrolled {
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 73, 94, 0.95) 100%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+}
+
+.nav-links {
   display: flex;
   justify-content: center;
   list-style: none;
-  gap: 20px;
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
 
-.navbar li {
-  display: inline;
+.nav-links li {
+  display: inline-block;
+  position: relative;
 }
 
-.navbar a {
+.nav-links a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  transition: color 0.3s;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: 25px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: block;
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
 }
 
-.navbar a:hover {
-  color: #1e2a47;
+/* Délais d'animation pour les liens de navigation */
+.nav-links a:nth-child(1) { animation-delay: 0.1s; }
+.nav-links a:nth-child(2) { animation-delay: 0.2s; }
+.nav-links a:nth-child(3) { animation-delay: 0.3s; }
+.nav-links a:nth-child(4) { animation-delay: 0.4s; }
+.nav-links a:nth-child(5) { animation-delay: 0.5s; }
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-links a:hover::before {
+  left: 100%;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.nav-links a:active {
+  transform: translateY(0);
+}
+
+/* Indicateur de section active */
+.nav-links a.active {
+  color: #007bff;
+  background: rgba(0, 123, 255, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
 }
 
 /* Slider */
 .slider-background {
-  background-color: #1e2a47; /* Nouveau fond, différent de la navbar */
-  min-height: 35vh; /* Taille réduite du slider */
+  background: linear-gradient(rgba(30, 42, 71, 0.8), rgba(30, 42, 71, 0.8)), 
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="code" patternUnits="userSpaceOnUse" width="40" height="40"><rect width="40" height="40" fill="%231a1a2e"/><text x="20" y="25" font-family="monospace" font-size="12" fill="%23333" text-anchor="middle">&lt;/&gt;</text></pattern></defs><rect width="1200" height="800" fill="url(%23code)"/></svg>');
+  background-size: cover;
+  background-attachment: fixed; /* Effet parallax */
+  min-height: 100vh; /* Pleine hauteur d'écran */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0; /* Suppression des espaces blancs entre les sections */
-  padding: 30; /* Suppression des espaces blancs */
+  margin-top: 0;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(30, 42, 71, 0.9), rgba(52, 73, 94, 0.8));
+  z-index: 1;
+}
+
+.slider-content {
+  position: relative;
+  z-index: 2;
 }
 
 .slider-content {
@@ -64,6 +153,57 @@ body {
 .slider-content h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.slider-content p {
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 h1 {
@@ -86,7 +226,15 @@ h2 {
 /* Sections générales */
 .section {
   margin-top: 0; /* Pour compenser la hauteur de la navbar */
-  padding: 30px 0; /* Réduit la taille de la section sous la navbar */
+  padding: 60px 0; /* Espacement normal des sections */
+  text-align: center; /* Centrage global du texte */
+}
+
+.section p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .section.dark {
@@ -109,14 +257,64 @@ h2 {
   background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
   padding: 20px;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .section.dark .formation-item:hover,
 .section.dark .skill:hover,
 .section.dark .realisation:hover {
-  transform: translateY(-5px); /* Élégance au survol */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px) scale(1.02); /* Élégance au survol */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Délais d'animation échelonnés pour effet cascade */
+.section.dark .skill:nth-child(1) { animation-delay: 0.1s; }
+.section.dark .skill:nth-child(2) { animation-delay: 0.2s; }
+.section.dark .skill:nth-child(3) { animation-delay: 0.3s; }
+.section.dark .skill:nth-child(4) { animation-delay: 0.4s; }
+.section.dark .skill:nth-child(5) { animation-delay: 0.5s; }
+
+.section.dark .formation-item:nth-child(1) { animation-delay: 0.1s; }
+.section.dark .formation-item:nth-child(2) { animation-delay: 0.2s; }
+.section.dark .formation-item:nth-child(3) { animation-delay: 0.3s; }
+
+.section.dark .realisation:nth-child(1) { animation-delay: 0.1s; }
+.section.dark .realisation:nth-child(2) { animation-delay: 0.2s; }
+.section.dark .realisation:nth-child(3) { animation-delay: 0.3s; }
+
+.section.dark .formation-item,
+.section.dark .skill,
+.section.dark .realisation {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.section.dark .formation-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.section.dark .formation-item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.section.dark .skill:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.section.dark .skill:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.section.dark .skill:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.section.dark .skill:nth-child(5) {
+  animation-delay: 0.4s;
 }
 
 .boxed {
@@ -267,12 +465,40 @@ h2 {
 
 /* Section "À propos de moi" */
 #apropos {
-  background-color: #333; /* Fond sombre */
+  background: linear-gradient(135deg, #333 0%, #2c3e50 100%);
   padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#apropos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  opacity: 0.3;
+}
+
+#apropos .flex-center {
+  position: relative;
+  z-index: 2;
+}
+
+#apropos .w50:first-child {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+#apropos .w50:last-child {
+  animation: slideInRight 0.8s ease-out 0.2s both;
 }
 
 #apropos p {
-  color: #fff; /* Texte en blanc */
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .profil-img {
@@ -281,6 +507,15 @@ h2 {
   border-radius: 50%; /* Rendre l'image ronde */
   object-fit: cover; /* Assurer que l'image remplit correctement le cercle */
   border: 5px solid #fff; /* Bordure blanche */
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.profil-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  border-color: #007bff;
 }
 
 /* Modales */
@@ -288,120 +523,107 @@ h2 {
   display: none;
   position: fixed;
   z-index: 1000;
-  top: 50%; /* Positionne la modale à 50% de la hauteur de l'écran */
-  left: 50%; /* Positionne la modale à 50% de la largeur de l'écran */
-  transform: translate(
-    -50%,
-    -50%
-  ); /* Décale la modale de la moitié de sa propre largeur et hauteur pour centrer */
-  width: 80%; /* Largeur de la modale (ajustable) */
-  max-width: 600px; /* Largeur maximale de la modale */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Fond semi-transparent pour le fond de la modale */
-  height: auto;
-  padding: 20px;
-  border-radius: 8px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 }
 
-/* Modale (esthétique) */
 .modal-content {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-content h3 {
+  color: #1e2a47;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: #333;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
   cursor: pointer;
   font-size: 30px;
+  color: #666;
+  transition: color 0.3s ease;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #1e2a47;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* Navbar */
-.navbar {
-  background-color: #333;
-  padding: 10px 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-/* Cacher le menu par défaut sur mobile */
-.nav-links {
-  display: flex; /* Affichage horizontal sur desktop */
-  justify-content: center;
-  list-style: none;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-  transition: max-height 0.5s ease; /* Transition douce */
-}
-
 /* Menu hamburger */
-.navbar .menu-hamburger {
+.menu-hamburger {
   display: none;
   position: absolute;
   top: 15px;
   right: 20px;
   width: 35px;
   cursor: pointer;
+  z-index: 1001;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+  transition: transform 0.3s ease;
 }
 
-/* Responsive */
+.menu-hamburger:hover {
+  transform: scale(1.1);
+}
+
+.menu-hamburger.active {
+  transform: rotate(90deg);
+}
+
+/* Responsive Design - Mobile First Approach */
+
+/* Tablettes (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .slider-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .slider-content p {
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+  
+  .w25, .w32 {
+    width: calc(33.333% - 20px);
+  }
+  
+  .formation-item, .skill, .realisation {
+    padding: 18px;
+  }
+}
+
+/* Tablettes portrait (768px - 900px) */
 @media screen and (max-width: 900px) {
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    background-color: #a7a2a2;
-    max-height: 0; /* Cacher le menu (hauteur à 0) */
-    overflow: hidden; /* Empêche le débordement */
-  }
-
-  .nav-links.active {
-    max-height: 500px; /* Hauteur automatique pour afficher le menu */
-  }
-
-  .navbar .menu-hamburger{
-    display: block; /* Montrer le bouton hamburger */
-  }
-
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 10px 0;
-    display: block;
-    text-align: center;
-    width: 100%;
-  }
-
-  .w25, .w32, .formation-item, .skill, .realisation {
-    width: calc(50% - 20px);
-    max-width: none;
-  }
-
-  .skill img, .realisation img, .formation-item img {
-    width: 60px;
-    height: 60px;
-  }
-
-  h1, h2 {
-    font-size: 1.8rem;
+  .slider-background {
+    min-height: 100vh; /* Garder la pleine hauteur */
+    padding: 20px;
   }
 
   .slider-content h1 {
@@ -410,6 +632,78 @@ h2 {
 
   .slider-content p {
     font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .nav-links {
+    display: none; /* Cacher complètement les liens sur mobile */
+  }
+
+  .nav-links.active {
+    display: flex; /* Afficher seulement quand le menu est actif */
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    padding-top: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .menu-hamburger {
+    display: block;
+  }
+
+  .w25, .w32, .formation-item, .skill, .realisation {
+    width: calc(50% - 20px);
+    max-width: none;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 15px 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    border-radius: 0;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: none;
+    box-shadow: none;
+    color: #007bff;
+  }
+
+  .slider-background {
+    min-height: 40vh;
+    padding: 20px;
+  }
+
+  .slider-content h1 {
+    font-size: 2rem;
+  }
+
+  .slider-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+
+  .skill img, .realisation img, .formation-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem;
   }
 
   .section.dark h2 {
@@ -424,16 +718,180 @@ h2 {
     font-size: 0.8rem;
     padding: 3px 8px;
   }
+
+  .profil-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
 }
 
-  @media screen and (max-width: 600px) {
-    .w25, .w32, .formation-item, .skill, .realisation {
-      width: 100%;
-      margin: 10px 0;
-    }
-  
-    .profil-img {
-      width: 150px;
-      height: 150px;
-    }
+/* Mobiles (480px - 768px) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 15px 0; /* Padding normal pour la navbar */
+    height: 60px; /* Hauteur fixe pour la navbar */
   }
+
+  .slider-background {
+    min-height: 100vh; /* Pleine hauteur sur mobile */
+    padding: 15px;
+  }
+
+  .slider-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .slider-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .section.dark {
+    padding: 40px 0;
+  }
+
+  .w25, .w32, .formation-item, .skill, .realisation {
+    width: calc(50% - 15px);
+    margin: 8px;
+  }
+
+  .skill img, .realisation img, .formation-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  h1, h2 {
+    font-size: 1.6rem;
+  }
+
+  .section.dark h2 {
+    font-size: 1.6rem;
+  }
+
+  .formation-item, .skill, .realisation {
+    padding: 12px;
+  }
+
+  .profil-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contact-info {
+    gap: 10px;
+  }
+
+  .contact-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+    max-height: 70vh;
+  }
+
+  .modal-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .modal-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Petits mobiles (320px - 480px) */
+@media screen and (max-width: 480px) {
+  .navbar {
+    height: 60px; /* Hauteur fixe pour la navbar */
+  }
+
+  .slider-background {
+    min-height: 100vh; /* Pleine hauteur sur petits mobiles */
+    padding: 10px;
+  }
+
+  .slider-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .slider-content p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .section {
+    padding: 30px 0;
+  }
+
+  .section.dark {
+    padding: 30px 0;
+  }
+
+  .w25, .w32, .formation-item, .skill, .realisation {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .skill img, .realisation img, .formation-item img {
+    width: 45px;
+    height: 45px;
+  }
+
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  .section.dark h2 {
+    font-size: 1.4rem;
+  }
+
+  .formation-item, .skill, .realisation {
+    padding: 10px;
+  }
+
+  .profil-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+    padding: 12px 0;
+  }
+
+  .contact-info {
+    gap: 8px;
+  }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .modal-content {
+    width: 98%;
+    padding: 10px;
+    max-height: 60vh;
+  }
+
+  .modal-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal-content p {
+    font-size: 0.8rem;
+  }
+}
