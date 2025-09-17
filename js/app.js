@@ -55,36 +55,25 @@ function updateActiveNavLink() {
   const navLinks = document.querySelectorAll('.nav-links a');
   
   let currentSection = '';
-  let closestSection = '';
-  let minDistance = Infinity;
   
   sections.forEach(section => {
     const sectionTop = section.getBoundingClientRect().top;
     const sectionHeight = section.offsetHeight;
-    const sectionCenter = sectionTop + (sectionHeight / 2);
     
-    // Calculer la distance par rapport au centre de l'écran
-    const distance = Math.abs(sectionCenter - (window.innerHeight / 2));
-    
-    if (distance < minDistance) {
-      minDistance = distance;
-      closestSection = section.getAttribute('id');
-    }
-    
-    // Détection classique pour les sections visibles
-    if (sectionTop <= 300 && sectionTop + sectionHeight > 300) {
+    // Détection plus précise : section visible dans le premier tiers de l'écran
+    if (sectionTop <= 200 && sectionTop + sectionHeight > 200) {
       currentSection = section.getAttribute('id');
     }
   });
   
-  // Si aucune section n'est détectée avec la méthode classique, utiliser la plus proche
-  if (!currentSection) {
-    currentSection = closestSection;
-  }
-  
   // Si on est tout en bas de la page, activer le contact
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
     currentSection = 'contact';
+  }
+  
+  // Si on est tout en haut (slider), activer "À propos"
+  if (window.scrollY < 100) {
+    currentSection = 'apropos';
   }
   
   navLinks.forEach(link => {
